@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quản lý người dùng</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.12.7/sweetalert2.min.css"
+    integrity="sha512-EeZYT52DgUwGU45iNoywycYyJW/C2irAZhp2RZAA0X4KtgE4XbqUl9zXydANcIlEuF+BXpsooxzkPW081bqoBQ=="
+    crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../assets/lib/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="../../assets/lib/slick/slick-theme.css" />
+  <link rel="stylesheet" href="../../assets/css/index.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header-wrap">
+      <div class="row">
+        <div class="col-4">
+          <ul class="header_info">
+            <li><a href="https://www.facebook.com/" class="ion-social-facebook"></a></li>
+            <li><a href="https://www.instagram.com/" class="ion-social-instagram-outline"></a></li>
+            <li><a href="https://www.youtube.com/" class="ion-social-youtube"></a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <div class="header_title">
+            <div class="header_img">
+              <a href="./index1.html">
+                <img src="../../assets/img/cc0f6669853253.5bbcb71788f2c.gif" alt="My Pham">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <form action="" class="form-search">
+            <div class="form-group">
+              <p style="font-size: 25px;">Xin chào, admin</p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Phan tab menu -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#DanhSachNguoiDung" role="tab" data-toggle="tab">Danh sách người dùng</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#DanhSachLoaiSanPham" role="tab" data-toggle="tab">Danh sách loại sản phẩm</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#DanhSachSanPham" role="tab" data-toggle="tab">Danh sách sản phẩm</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#DanhSachOrder" role="tab" data-toggle="tab">Danh sách hóa đơn</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#ThongKe" role="tab" data-toggle="tab">Thống kê</a>
+      </li>
+    </ul>
+    <br />
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!--Danh sách người dùng -->
+      <div role="tabpanel" class="tab-pane  in active" id="DanhSachNguoiDung">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- BEGIN BUTTOM THÊM MỚI -->
+            <button id="btnThemNguoiDung" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+              <i class="fa fa-plus mr-1"></i>
+              Thêm Mới
+            </button>
+            <!-- END BUTTON THÊM MỚI -->
+          </div>
+          <div class="col-md-4">
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group mb-3">
+              <input id="txtSearch" type="text" class="form-control" placeholder="Nhập từ khóa"
+                aria-label="Recipient's username" aria-describedby="basic-addon2" />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+            <!-- END TÌM KIẾM -->
+          </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="tblNguoiDung" id="tblNguoiDung">
+          <!-- BEGIN TABLE NGƯỜI DÙNG -->
+          <table class="table table-bordered">
+            <thead>
+              <th>STT</th>
+              <th>Id</th>
+              <th>Họ tên</th>
+              <th>Email</th>
+              <th>Địa chỉ</th>
+              <th>Số điện thoại</th>
+              <th>Role</th>
+              <th>Action</th>
+            </thead>
+            <tbody id="tblDanhSachNguoiDung"></tbody>
+          </table>
+          <!-- END TABLE NGƯỜI DÙNG -->
+        </div>
+        <br />
+      </div>
+      <!-- Kết thúc danh sách người dùng -->
+      <div role="tabpanel" class="tab-pane fade" id="DanhSachLoaiSanPham">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- BEGIN BUTTOM THÊM MỚI -->
+            <button id="btnThemLoaiSanPham" class="btn btn-success" data-toggle="modal" data-target="#myModal3">
+              <i class="fa fa-plus mr-1"></i>
+              Thêm Mới
+            </button>
+            <!-- END BUTTON THÊM MỚI -->
+          </div>
+          <div class="col-md-4">
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group mb-3">
+              <input id="txtSearch3" type="text" class="form-control" placeholder="Nhập từ khóa"
+                aria-label="Recipient's name_category" aria-describedby="basic-addon2" />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+            <!-- END TÌM KIẾM -->
+          </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="tblLoaiSanPham" id="tblLoaiSanPham">
+          <!-- BEGIN TABLE SAN PHAM -->
+          <table class="table table-bordered">
+            <thead>
+              <th>Id loại sản phẩm</th>
+              <th>Tên loại sản phẩm</th>
+              <th>Mô tả</th>
+              <th>Action</th>
+            </thead>
+            <tbody id="tblDanhSachLoaiSanPham"></tbody>
+          </table>
+          <!-- END TABLE SAN PHAM -->
+        </div>
+        <br />
+      </div>
+      <!-- Kết thúc danh sách loại sản phẩm-->
+      <div role="tabpanel" class="tab-pane fade" id="DanhSachSanPham">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- BEGIN BUTTOM THÊM MỚI -->
+            <button id="btnThemSanPham" class="btn btn-success" data-toggle="modal" data-target="#myModal2">
+              <i class="fa fa-plus mr-1"></i>
+              Thêm Mới
+            </button>
+            <!-- END BUTTON THÊM MỚI -->
+          </div>
+          <div class="col-md-4">
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group mb-3">
+              <input id="txtSearch2" type="text" class="form-control" placeholder="Nhập từ khóa"
+                aria-label="Recipient's name_pro" aria-describedby="basic-addon2" />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+            <!-- END TÌM KIẾM -->
+          </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="tblSanPham" id="tblSanPham">
+          <!-- BEGIN TABLE SAN PHAM -->
+          <table class="table table-bordered">
+            <thead>
+              <th>Id sản phẩm</th>
+              <th>Tên sản phẩm</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
+              <th>Loại sản phẩm</th>
+              <th>Mô tả</th>
+              <th>Link hình ảnh</th>
+              <th>Action</th>
+            </thead>
+            <tbody id="tblDanhSachSanPham"></tbody>
+          </table>
+          <!-- END TABLE SAN PHAM -->
+        </div>
+        <br />
+      </div>
+      <!-- Kết thúc danh sách sản phẩm-->
+      <div role="tabpanel" class="tab-pane fade" id="DanhSachOrder">
+        <div class="row">
+          <div class="col-md-8">
+          </div>
+          <div class="col-md-4">
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group mb-3">
+              <input id="txtSearchOrder" type="text" class="form-control" placeholder="Nhập từ khóa"
+                aria-label="Recipient's name_order" aria-describedby="basic-addon2" />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+            <!-- END TÌM KIẾM -->
+          </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="tblOrder" id="tblOrder">
+          <!-- BEGIN TABLE SAN PHAM -->
+          <table class="table table-bordered">
+            <thead>
+              <th>ID hóa đơn</th>
+              <th>Email khách hàng</th>
+              <th>Yêu cầu khách hàng</th>
+              <th>Tổng hóa đơn</th>
+              <th>Chi tiết đơn hàng</th>
+            </thead>
+            <tbody id="tblDanhSachOrder"></tbody>
+          </table>
+          <!-- END TABLE SAN PHAM -->
+        </div>
+        <br />
+      </div>
+      <!-- Kết thúc danh sách hóa đơn-->
+
+      <!-- Thống kê -->
+      <div role="tabpanel" class="tab-pane fade" id="ThongKe">
+        <span>Đang cập nhật...</span>
+      </div>
+      <!-- Kết thúc thống kê -->
+    </div>
+
+    <!--KetThuc Tabmenu-->
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Họ tên</label>
+              <input id="name" class="form-control" placeholder="Nhập vào họ tên" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input id="email" class="form-control" placeholder="Nhập vào email" />
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại</label>
+              <input id="phone" class="form-control" placeholder="Nhập vào số điện thoại" />
+            </div>
+            <div class="form-group">
+              <label>Địa chỉ</label>
+              <input id="address" class="form-control" placeholder="Nhập vào địa chỉ" />
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu</label>
+              <input id="password" class="form-control" placeholder="Nhập vào mật khẩu" type="password" />
+            </div>
+            <div class="form-group">
+              <label for="">Loại Người Dùng: </label>
+              <select class="form-control" id="role">
+                <option value="admin">Admin</option>
+                <option value="guest">Guest</option>
+              </select>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal3">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Tên loại sản phẩm</label>
+              <input id="name_cate" class="form-control" placeholder="Nhập vào tên loại sản phẩm" />
+            </div>
+            <div class="form-group">
+              <label>Mô tả</label>
+              <input id="description_cate" class="form-control" placeholder="Nhập vào mô tả" />
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Id sản phẩm</label>
+              <input id="sku" class="form-control" placeholder="Nhập vào mã sản phẩm" />
+            </div>
+            <div class="form-group">
+              <label>Tên sản phẩm</label>
+              <input id="name_product" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+            </div>
+            <div class="form-group">
+              <label>Giá</label>
+              <input id="price" class="form-control" placeholder="Nhập vào giá thành" />
+            </div>
+            <div class="form-group">
+              <label>Số lượng</label>
+              <input id="quantity" class="form-control" placeholder="Nhập vào số lượng" />
+            </div>
+            <div class="form-group">
+              <label>Loại sản phẩm</label>
+              <select id="category" class="form-control" placeholder="Nhập vào loại sản phẩm"></select>
+            </div>
+            <div class="form-group">
+              <label>Mô tả </label>
+              <input id="description" class="form-control" placeholder="Nhập vào loại sản phẩm" />
+            </div>
+            <div class="form-group">
+              <label>Hình ảnh</label>
+              <input id="image" class="form-control" placeholder="Nhập vào link hình ảnh" />
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModalOrder">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="clear-fix"></div>
+          <h4 class="modal-title">Chi Tiết Đơn Hàng</h4>
+          <div class="tblOrder" id="tblOrder">
+            <table class="table table-bordered">
+              <thead>
+                <th>Mã sản phẩm</th>
+                <th>Amount</th>
+                <th>Total</th>
+              </thead>
+              <tbody id="tblDanhSachProductOrder"></tbody>
+            </table>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal3">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Tên loại sản phẩm</label>
+              <input id="name_cate" class="form-control" placeholder="Nhập vào tên loại sản phẩm" />
+            </div>
+            <div class="form-group">
+              <label>Mô tả</label>
+              <input id="description_cate" class="form-control" placeholder="Nhập vào mô tả" />
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="container"></div>
+  <style>
+    #container {
+      min-width: 310px;
+      max-width: 800px;
+      height: 400px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.12.7/sweetalert2.min.js"
+    integrity="sha512-V15jWpDeqbnzudMhdQ5IZ9N/asIanBT0bAJoxcwQ/WRS9QfIY4ik29EdYZkNhRjpjlcJczJyv0bjfY5kWFmKwg=="
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="./../models/NguoiDung.js"></script>
+  <script src="./../services/NguoiDungService.js"></script>
+  <script src="./../controllers/main_user.js"></script>
+
+  <script src="./../models/LoaiSanPham.js"></script>
+  <script src="./../services/LoaiSanPhamService.js"></script>
+  <script src="./../controllers/main_category.js  "></script>
+
+  <script src="./../models/SanPham.js"></script>
+  <script src="./../services/SanPhamService.js"></script>
+  <script src="./../controllers/main_product.js"></script>
+
+  <script src="./../models/Order.js"></script>
+  <!-- <script src="./../services/cart.js"></script> -->
+  <script type="module" src="./../controllers/main_order.js"></script>
+
+
+</body>
+
+</html>

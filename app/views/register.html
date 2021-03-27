@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Đăng kí</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div id="app" class="container">
+    <h1 style="padding: 20px 0">ĐĂNG KÍ</h1>
+    <p>
+      Nếu bạn đã có tài khoản. Đăng nhập tại đây
+      <a href="login.html" class="btn-dk btn btn-success">Login</a>
+    </p>
+    <br>
+    <form id="yh">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="" aria-describedby="helpId">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="phone" name="phone" id="phone" class="form-control" placeholder="" aria-describedby="helpId">
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="address" name="address" id="address" class="form-control" placeholder="" aria-describedby="helpId">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+
+        <div class="form-group">
+          <label for="matKhau">Password</label>
+          <input type="password" name="matKhau" id="matKhau" class="form-control" placeholder=""
+            aria-describedby="helpId">
+        </div>
+
+        <button type="submit" id="btn-dk" class="btn-dk btn btn-success">Đăng Ký</button>
+
+    </form>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="../controllers/register.js"></script>
+</body>
+
+</html>

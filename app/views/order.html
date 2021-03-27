@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phiếu mua hàng</title>
+  <link rel="stylesheet" href="../../assets/css/order.css">
+  <link rel="stylesheet" href="../../assets/css/index.css">
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.12.7/sweetalert2.css"
+    integrity="sha512-sdBlqIXiZQy6Z6WJXrCb6sQ3v1DF0x6qQghP56taypKGGuru3ANBhSFLePvcolfP8xCzVoNvhP8Smm29EH7eMQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+
+<body>
+
+  </header>
+  <main>
+    <div class="container">
+      <div class="main-navigation">
+        <nav class="navigation">
+          <p><a href="#">Trang chủ</a><span class="icons ion-ios-arrow-right"></span><span
+              class="icons ion-ios-arrow-right"></span><a href="#">Đặt hàng</a></p>
+        </nav>
+        <div class="row">
+          <div class="lg-col-6">
+
+            <div class="info">
+              <p class="title">Thông tin giao hàng</p>
+              <div class="list">
+                <input id="name" class="input" type="text" placeholder="Họ và tên người nhận">
+              </div>
+              <div class="list">
+                <input id="email" class="input" type="text" placeholder="Email người nhận">
+              </div>
+              <div class="list">
+                <input id="phone" class="input" type="text" placeholder="Số điện thoại người nhận">
+              </div>
+              <div class="list">
+                <input id="address" class="input note" type="text"
+                  placeholder="Địa chỉ giao hàng (Vui lòng nhập chính xác): ">
+              </div>
+              <div class="list">
+                <input id="order_desc" class="input note" type="text" placeholder="Yêu cầu khách hàng ">
+              </div>
+              <!--                        
+                        <div class="list">
+                            <input id = "note" class="input note" type="text" placeholder="Lời nhắc">
+                        </div> -->
+            </div>
+            <div class="choose">
+              <div class="button">
+                <button id="buy_product" class="yes btn">Đặt hàng</button>
+                <a href="./index1.html" onclick="handleDestroyProduct()" class="btn btn-danger">Hủy</a>
+              </div>
+              <div class="next">
+                <div class="icons ion-ios-undo"></div>
+                <span><a href="../views/index1.html">Tiếp tục mua hàng</a></span>
+              </div>
+            </div>
+          </div>
+          <div class="lg-col-5">
+            <div class="check">
+              <div class="cart">
+                <p><a href="#">Giỏ hàng: </a></p>
+                <hr>
+                <div id="lst-product" class="cart__vc">
+
+                </div>
+                <hr>
+                <div class="cart__vc">
+                  <div class="cart__item">
+                  </div>
+                  <div class="cart__item">
+                    <span class="tt">Phí vận chuyển</span>
+                    <span class="money">Miễn phí</span>
+                  </div>
+                </div>
+                <hr>
+                <div class="cart__vc">
+                  <div class="cart__item">
+                    <span class="tt">Tổng chi phí </span>
+                    <span id="total_product" class="money sum"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="bcg-col-3">
+            <div class="footer-item">
+              <p class="footer-item__title">
+                Doanh nghiệp
+              </p>
+              <div class="text footer-item__content">
+                <p>TwoPeas Production and investment trading joint stock company</p>
+                <p>Mã số doanh nghiệp: 0107094755 <br /> Giấy phép ĐKKD số: 0107094755</p>
+              </div>
+            </div>
+          </div>
+          <div class="bcg-col-3">
+            <div class="footer-item">
+              <p class="footer-item__title">
+                Các loại mỹ phẩm
+              </p>
+              <div class="footer-item__content list-categories">
+                <ul>
+                  <li><a href="#">Tẩy trang</a></li>
+                  <li><a href="#">Tẩy tế bào chết</a></li>
+                  <li><a href="#">Sữa rửa mặt</a></li>
+                  <li><a href="#">Tonner</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bcg-col-3">
+            <div class="footer-item">
+              <p class="footer-item__title">
+                Văn phòng
+              </p>
+              <div class="footer-item__content contact">
+                <ul>
+                  <li>
+                    <span class="icons ion-ios-location"></span>
+                    <span class="text">100 Man Thiện, Quận 9</span>
+                  </li>
+                  <li>
+                    <span class="icons ion-ios-location"></span>
+                    <span class="text">180 Lê Văn Việt, Quận 9</span>
+                  </li>
+                  <li>
+                    <span class="icons ion-ios-location"></span>
+                    <span class="text">365 Điện Biên Phủ, Quận 1</span>
+                  </li>
+                  <li>
+                    <span class="icons ion-ios-location"></span>
+                    <span class="text">251 Hàn Thuyên, Quận Thủ Đức</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bcg-col-3">
+            <div class="footer-item">
+              <p class="footer-item__title">
+                Nhà máy
+              </p>
+              <br>
+              <li>
+                <span class="text">Sản phẩm được phân phối và sản xuất tại PTITHCM</span>
+              </li>
+              <div class="footer-item__content contact">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-footer">
+      <div class="container">
+        <p class=copyright>© Copyright 2016 twopeas.vn - Nhà cung cấp mỹ phẩm hàng đầu tại Việt
+          Nam</p>
+      </div>
+      <div class="hotline">
+        <span class="icons ion-ios-telephone"></span>
+        <span class="phone-number">0123 688 3636</span>
+      </div>
+    </div>
+  </footer>
+  <!-- js  -->
+  <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
+  <script src="../../node_modules/axios/dist/axios.min.js"></script>
+  <script type="module" src="../controllers/shopCart.js"></script>
+</body>
+
+</html>
